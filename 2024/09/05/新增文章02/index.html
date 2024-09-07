@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    hexo bug大小事 |
+    
+    Hexo
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="../../../../css/style.css">
+
+  
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="../../../../js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-新增文章02" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    hexo bug大小事
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="" class="article-date">
+  <time datetime="2024-09-04T22:49:43.000Z" itemprop="datePublished">2024-09-05</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <hr>
+<blockquote>
+<h1 id="1-hexo-generate-進行輸出網頁-主題跟圖片無法顯示"><a href="#1-hexo-generate-進行輸出網頁-主題跟圖片無法顯示" class="headerlink" title="1.hexo generate 進行輸出網頁, 主題跟圖片無法顯示"></a>1.<code>hexo generate 進行輸出網頁, 主題跟圖片無法顯示</code></h1><img src="./圖片/hexo bug合集/主題圖片顯示不出來01.png">
+</blockquote>
+<ul>
+<li><h3 id="通常會出現這種情況-是因為-初始設定為-“絕對路徑”-而非-“相對路徑”"><a href="#通常會出現這種情況-是因為-初始設定為-“絕對路徑”-而非-“相對路徑”" class="headerlink" title="通常會出現這種情況, 是因為 初始設定為 “絕對路徑” 而非 “相對路徑”"></a>通常會出現這種情況, 是因為 初始設定為 “絕對路徑” 而非 “相對路徑”</h3></li>
+<li><h3 id="什麼是-絕對路徑-和-相對路徑-可以參考以下範例"><a href="#什麼是-絕對路徑-和-相對路徑-可以參考以下範例" class="headerlink" title="什麼是 絕對路徑 和 相對路徑 可以參考以下範例"></a>什麼是 絕對路徑 和 相對路徑 可以參考以下範例</h3></li>
+<li><h3 id="範例"><a href="#範例" class="headerlink" title="範例 :"></a>範例 :</h3></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">相對路徑</span><br><span class="line">&lt;img src=&quot;bear3721488.png&quot;&gt;</span><br><span class="line">&lt;img src=&quot;images/bear3721488.png&quot;&gt;</span><br><span class="line">&lt;img src=&quot;./images/bear3721488.png&quot;&gt;</span><br><span class="line"></span><br><span class="line">絕對路徑</span><br><span class="line">&lt;img src=&quot;/images/bear3721488.png&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li><h1 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法 :"></a><code>解決方法 :</code></h1></li>
+</ul>
+</blockquote>
+<ul>
+<li><h3 id="1-修改-config-yml"><a href="#1-修改-config-yml" class="headerlink" title="1. 修改 _config.yml"></a>1. 修改 _config.yml</h3></li>
+<li><h3 id="2-relative-link-false-這行改為-true-即可"><a href="#2-relative-link-false-這行改為-true-即可" class="headerlink" title="2. relative_link: false 這行改為 true 即可"></a>2. relative_link: false 這行改為 true 即可</h3></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 決對路徑改為相對路徑</span><br><span class="line">relative_link: true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="改完主題就會出現-如果圖片假如沒有出來"><a href="#改完主題就會出現-如果圖片假如沒有出來" class="headerlink" title="改完主題就會出現, 如果圖片假如沒有出來"></a>改完主題就會出現, 如果圖片假如沒有出來</h3></li>
+</ul>
+<img src="./圖片/hexo bug合集/主題圖片顯示不出來02.png">
+
+<ul>
+<li><h3 id="3-那就只能從-hexo-generate-生成的-html-進行修改"><a href="#3-那就只能從-hexo-generate-生成的-html-進行修改" class="headerlink" title="3. 那就只能從 hexo generate 生成的 html 進行修改"></a>3. 那就只能從 hexo generate 生成的 html 進行修改</h3></li>
+<li><h3 id="把-“絕對路徑”-都修改成-“相對路徑”-一個個修"><a href="#把-“絕對路徑”-都修改成-“相對路徑”-一個個修" class="headerlink" title="把 “絕對路徑” 都修改成 “相對路徑” 一個個修"></a>把 “絕對路徑” 都修改成 “相對路徑” 一個個修</h3></li>
+<li><h3 id="更改前"><a href="#更改前" class="headerlink" title="更改前"></a>更改前</h3></li>
+</ul>
+<img src="./圖片/hexo bug合集/絕對路徑改成相對路徑01.png">
+
+<ul>
+<li><h3 id="更改後"><a href="#更改後" class="headerlink" title="更改後"></a>更改後</h3></li>
+</ul>
+<img src="./圖片/hexo bug合集/絕對路徑改成相對路徑02.png">
+
+<ul>
+<li><h3 id="其實也就只是加上-“-”-在-前面而已"><a href="#其實也就只是加上-“-”-在-前面而已" class="headerlink" title="其實也就只是加上 “.” 在 &#x2F; 前面而已"></a>其實也就只是加上 “.” 在 &#x2F; 前面而已</h3></li>
+<li><h3 id="如果不知道什麼是絕對路徑或相對路徑-可以看參考下面的網址"><a href="#如果不知道什麼是絕對路徑或相對路徑-可以看參考下面的網址" class="headerlink" title="如果不知道什麼是絕對路徑或相對路徑 可以看參考下面的網址"></a>如果不知道什麼是絕對路徑或相對路徑 可以看參考下面的網址</h3></li>
+</ul>
+<h3 id="5-6-HTML-的絕對路徑與相對路徑"><a href="#5-6-HTML-的絕對路徑與相對路徑" class="headerlink" title="5.6 HTML 的絕對路徑與相對路徑"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Lqi0NkXW64Q">5.6 HTML 的絕對路徑與相對路徑</a></h3><ul>
+<li><h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3></li>
+</ul>
+<h3 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a><a target="_blank" rel="noopener" href="https://orandigo.github.io/blog/2020/03/01/20200301-hexo/">安裝 Hexo</a></h3><h3 id="5-6-HTML-的絕對路徑與相對路徑-1"><a href="#5-6-HTML-的絕對路徑與相對路徑-1" class="headerlink" title="5.6 HTML 的絕對路徑與相對路徑"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Lqi0NkXW64Q">5.6 HTML 的絕對路徑與相對路徑</a></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/09/05/%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A002/" data-id="cm0rxsbdx000000v01icta78h" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Hexo%E5%AD%B8%E7%BF%92/" rel="tag">Hexo學習</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/hexo-bug/" rel="tag">hexo bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E5%B0%8F%E8%8F%9C%E9%9B%9E%E7%9A%84%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" rel="tag">小菜雞的學習筆記</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="../../../08/24/%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">(筆記)學習Hexo blog(2)</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>Hexo &copy; 2024</li>
+      
+        <li>
+          
+            <a href="https://beian.miit.gov.cn/" target="_blank"></a>
+            
+        </li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="../../../../index.html"><img src="/images/hexo.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../index.html">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="../../../../atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="../../../../js/jquery-2.0.3.min.js"></script>
+
+
+<script src="../../../../js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="../../../../js/lazyload.min.js"></script>
+
+
+<script src="../../../../js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="../../../../js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="../../../../js/ocean.js"></script>
+
+</body>
+
+</html>
